@@ -22,6 +22,12 @@ defmodule Convertor do
       number == 9 ->
         acc = acc <> "IX"
         number = number - 9
+      number >= 90 and number < 100 ->
+          acc = acc <> "XC"
+          number = number - 90
+      number >= 900 and number < 1000 ->
+          acc = acc <> "CM"
+          number = number - 900
       true ->
         acc = acc <> numeral(numeral.roman, numeral.arabic, repeat_count)
         number = next_number(numeral, repeat_count, number)
@@ -29,6 +35,8 @@ defmodule Convertor do
     numerals(rest_numerals, number, acc)
   end
 
+  def numeral(roman, arabic, repeat_count) when repeat_count == 4 and arabic == 100 do "CD" end
+  def numeral(roman, arabic, repeat_count) when repeat_count == 4 and arabic == 10 do "XL" end
   def numeral(roman, arabic, repeat_count) when repeat_count == 4 and arabic == 1 do "IV" end
   def numeral(_, _, repeat_count) when repeat_count == 0 do "" end
   def numeral(roman, arabic, repeat_count) when repeat_count > 0 and repeat_count <= 3 do
@@ -36,10 +44,7 @@ defmodule Convertor do
   end
 
   def next_number(_, repeat_count, number) when repeat_count == 0 do number end
-  def next_number(numeral, repeat_count, number) when repeat_count == 4 do
-     number - (numeral.arabic * repeat_count)
-  end
-  def next_number(numeral, repeat_count, number) when repeat_count > 0 and repeat_count <= 3 do
+  def next_number(numeral, repeat_count, number) when repeat_count > 0 and repeat_count <= 4 do
     number - (numeral.arabic * repeat_count)
   end
 

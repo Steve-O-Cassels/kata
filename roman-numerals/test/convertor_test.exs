@@ -52,19 +52,34 @@ defmodule ConvertorTest do
     assert Convertor.convert(89) == expected
   end
 
+  test "Convert 90 to XC" do
+    expected = "XC"
+    assert Convertor.convert(90) == expected
+  end
+
+  test "Convert 99 to XCIX" do
+    expected = "XCIX"
+    assert Convertor.convert(99) == expected
+  end
+
   test "convert 900 to CM" do
     expected = "CM"
     assert Convertor.convert(900) == expected
   end
 
-  # # test "convert 899 to DCCCXCIX" do
-  # #   expected = "DCCCXCIX"
-  # #   assert Convertor.convert(899) == expected
-  # # end
-  #
-  # test "Convert 40 to XL" do
-  #   expected = "XL"
-  #   assert Convertor.convert(40) == expected
-  # end
+  test "convert 999 to CMXCIX" do
+    expected = "CMXCIX"
+    assert Convertor.convert(999) == expected
+  end
+
+  test "convert 899 to DCCCXCIX" do
+    expected = "DCCCXCIX"
+    assert Convertor.convert(899) == expected
+  end
+
+  test "Convert 40 to XL" do
+    expected = "XL"
+    assert Convertor.convert(40) == expected
+  end
 
 end
