@@ -17,7 +17,6 @@ defmodule Convertor do
 
   def numerals([], 0, acc) do acc end
   def numerals([numeral | rest_numerals], number, acc) do
-    repeat_count = div(number, numeral.arabic)
     cond do
       number == 9 ->
         acc = acc <> "IX"
@@ -29,6 +28,7 @@ defmodule Convertor do
           acc = acc <> "CM"
           number = number - 900
       true ->
+        repeat_count = div(number, numeral.arabic)
         acc = acc <> numeral(numeral.roman, numeral.arabic, repeat_count)
         number = next_number(numeral, repeat_count, number)
     end
