@@ -35,6 +35,7 @@ defmodule Convertor do
     numerals(rest_numerals, number, acc)
   end
 
+  def numeral(roman, arabic, repeat_count) when repeat_count == 4 and arabic == 1000 do "MMMM" end
   def numeral(roman, arabic, repeat_count) when repeat_count == 4 and arabic == 100 do "CD" end
   def numeral(roman, arabic, repeat_count) when repeat_count == 4 and arabic == 10 do "XL" end
   def numeral(roman, arabic, repeat_count) when repeat_count == 4 and arabic == 1 do "IV" end
