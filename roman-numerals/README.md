@@ -1,6 +1,7 @@
 # Romannumerals
 
-**TODO: Add description**
+**Roman Numerals up to 4000 **
+Used http://www.periodni.com/roman_numerals_converter.html for manual verificaiton of roman numerals to arabic.
 
 ## Installation
 
@@ -17,4 +18,3 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
         def application do
           [applications: [:romannumerals]]
         end
-

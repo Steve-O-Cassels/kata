@@ -40,7 +40,7 @@ defmodule Convertor do
   defp numeral(_roman, arabic, repeat_count) when repeat_count == 4 and arabic == 1, do: "IV"
   defp numeral(_, _, repeat_count) when repeat_count == 0, do: ""
   defp numeral(roman, _arabic, repeat_count) when repeat_count > 0 and repeat_count <= 3 do
-    String.duplicate(roman, repeat_count)
+  String.duplicate(roman, repeat_count)
   end
 
   defp next_number(_, repeat_count, number) when repeat_count == 0, do: number
