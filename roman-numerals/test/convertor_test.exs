@@ -1,95 +1,41 @@
 defmodule ConvertorTest do
   use ExUnit.Case
 
+  @test_cases [
+    %{input: 1, expected: "I"},
+    %{input: 3, expected: "III"},
+    %{input: 4, expected: "IV"},
+    %{input: 5, expected: "V"},
+    %{input: 9, expected: "IX"},
+    %{input: 10, expected: "X"},
+    %{input: 11, expected: "XI"},
+    %{input: 13, expected: "XIII"},
+    %{input: 14, expected: "XIV"},
+    %{input: 19, expected: "XIX"},
+    %{input: 20, expected: "XX"},
+    %{input: 39, expected: "XXXIX"},
+    %{input: 40, expected: "XL"},
+    %{input: 84, expected: "LXXXIV"},
+    %{input: 89, expected: "LXXXIX"},
+    %{input: 90, expected: "XC"},
+    %{input: 99, expected: "XCIX"},
+    %{input: 899, expected: "DCCCXCIX"},
+    %{input: 900, expected: "CM"},
+    %{input: 999, expected: "CMXCIX"},
+    %{input: 1000, expected: "M"},
+    %{input: 1499, expected: "MCDXCIX"},
+    %{input: 2899, expected: "MMDCCCXCIX"},
+    %{input: 2999, expected: "MMCMXCIX"},
+    %{input: 3001, expected: "MMMI"},
+    %{input: 3999, expected: "MMMCMXCIX"},
+    %{input: 4000, expected: "MMMM"},
+  ]
 
-  test "Convert 1 to I" do
-    expected = "I"
-    assert Convertor.convert(1) == expected
+  test "Converts Arabic numbers from 1 to 4000 to Roman Numerals" do
+    Enum.each(@test_cases, fn(t) ->
+      IO.inspect("Convert #{t.input} to #{t.expected}")
+      assert Convertor.convert(t.input) == t.expected
+    end)
   end
-
-  test "convert 3 to III" do
-    expected = "III"
-    assert Convertor.convert(3) == expected
-  end
-
-  test "convert 4 to IV" do
-    expected = "IV"
-    assert Convertor.convert(4) == expected
-  end
-
-  test "Convert 5 to V" do
-    expected = "V"
-    assert Convertor.convert(5) == expected
-  end
-
-  test "convert 9 to IX" do
-    expected = "IX"
-    assert Convertor.convert(9) == expected
-  end
-
-  test "Convert 10 to X" do
-    expected = "X"
-    assert Convertor.convert(10) == expected
-  end
-
-  test "Convert 11 to XI" do
-    expected = "XI"
-    assert Convertor.convert(11) == expected
-  end
-
-  test "Convert 13 to XIII" do
-    expected = "XIII"
-    assert Convertor.convert(13) == expected
-  end
-
-  test "Convert 40 to XL" do
-    expected = "XL"
-    assert Convertor.convert(40) == expected
-  end
-
-  test "Convert 84 to LXXXIV" do
-    expected = "LXXXIV"
-    assert Convertor.convert(84) == expected
-  end
-
-  test "Convert 89 to LXXXIX" do
-    expected = "LXXXIX"
-    assert Convertor.convert(89) == expected
-  end
-
-  test "Convert 90 to XC" do
-    expected = "XC"
-    assert Convertor.convert(90) == expected
-  end
-
-  test "Convert 99 to XCIX" do
-    expected = "XCIX"
-    assert Convertor.convert(99) == expected
-  end
-
-  test "convert 899 to DCCCXCIX" do
-    expected = "DCCCXCIX"
-    assert Convertor.convert(899) == expected
-  end
-
-  test "convert 900 to CM" do
-    expected = "CM"
-    assert Convertor.convert(900) == expected
-  end
-
-  test "convert 999 to CMXCIX" do
-    expected = "CMXCIX"
-    assert Convertor.convert(999) == expected
-  end
-
-  test "convert 1000 to M" do
-    expected = "M"
-    assert Convertor.convert(1000) == expected
-  end
-
-  # test "convert 1499 to MCDXCIX" do
-  #   expected = "MCDXCIX"
-  #   assert Convertor.convert(1000) == expected
-  # end
 
 end
